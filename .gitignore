@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.pytest_cache/
+expanded/
+runs/
+llm_cache.json
+llm_cache.json.tmp
+CLAUDE.md
+.claude/

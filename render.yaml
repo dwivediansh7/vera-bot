@@ -1,0 +1,29 @@
+# Render Blueprint — FREE plan. Free web services sleep after ~15 min without traffic, so keep it
+# awake with an UptimeRobot (or similar) HTTP monitor on /v1/healthz every 5 minutes (see DEPLOY.md).
+services:
+  - type: web
+    name: vera-bot
+    runtime: docker
+    plan: free
+    region: singapore
+    autoDeploy: false          # never redeploy (and wipe in-memory state) during a test window
+    healthCheckPath: /v1/healthz
+    envVars:
+      - key: TEAM_NAME
+        value: ANSH DWIVEDI
+      - key: TEAM_MEMBERS
+        value: Ansh Dwivedi
+      - key: CONTACT_EMAIL
+        value: dwivediansh0@gmail.com
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: LLM_MODEL
+        value: gemini-3.5-flash-lite
+      - key: LLM_API_KEY
+        sync: false            # set in the Render dashboard; never committed
+      - key: VERA_LLM_MODE
+        value: polish
+      - key: LLM_OUTBOUND
+        value: "off"
+      - key: LLM_RPM
+        value: "10"
